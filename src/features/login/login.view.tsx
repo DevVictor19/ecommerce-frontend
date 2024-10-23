@@ -6,6 +6,7 @@ import loginWallpaper from '@/assets/login-wallpaper.png';
 import CheckBox from '@/components/inputs/Checkbox';
 import TextInput from '@/components/inputs/TextInput';
 import Button from '@/components/ui/Button';
+import { APP_ROUTE } from '@/enums/app-routes.enum';
 
 export default function LoginView() {
   return (
@@ -47,7 +48,7 @@ export default function LoginView() {
         </div>
         <h3 className="absolute bottom-8 text-secondary-dark opacity-60">
           Don&apos;t have an account yet?{' '}
-          <Link href="/signup" className="font-bold text-primary-dark">
+          <Link href={APP_ROUTE.SIGNUP} className="font-bold text-primary-dark">
             Sign Up
           </Link>
         </h3>
