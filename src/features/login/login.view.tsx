@@ -27,7 +27,7 @@ export default function LoginView() {
             <ShoppingBag className="grow-0 text-secondary-dark" size={24} />
           </div>
           <div className="mb-10 text-center">
-            <h1 className="mb-1 text-2xl text-secondary-dark">Hello Again!</h1>
+            <h1 className="mb-1 text-2xl text-secondary-dark">Hello again!</h1>
             <h2 className="text-secondary-dark opacity-50">
               Enter your account and start shopping
             </h2>

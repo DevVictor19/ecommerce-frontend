@@ -17,7 +17,7 @@ export default function SignupView() {
           </div>
           <div className="mb-10 text-center">
             <h1 className="mb-1 text-2xl text-secondary-dark">
-              Create New Account
+              Create a new account
             </h1>
             <h2 className="text-secondary-dark opacity-50">
               Create an account to start shopping
