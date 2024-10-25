@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { ShoppingBag } from 'react-feather';
 
 import signupWallpaper from '@/assets/signup-wallpaper.png';
-import TextInput from '@/components/inputs/TextInput';
-import Button from '@/components/ui/Button';
 import { APP_ROUTE } from '@/enums/app-routes.enum';
+
+import SignupForm from './form/signup-form';
 
 export default function SignupView() {
   return (
@@ -23,14 +23,7 @@ export default function SignupView() {
               Create an account to start shopping
             </h2>
           </div>
-          <form className="w-full">
-            <div className="flex flex-col gap-4">
-              <TextInput label="Username" name="username" type="text" />
-              <TextInput label="E-mail" name="email" type="text" />
-              <TextInput label="Password" name="email" type="password" />
-            </div>
-            <Button className="mt-12" label="Signup" type="submit" />
-          </form>
+          <SignupForm />
         </div>
         <h3 className="absolute bottom-8 text-secondary-dark opacity-60">
           Already have an account?{' '}
