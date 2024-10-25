@@ -16,7 +16,7 @@ export default function CheckBox({
   return (
     <div
       className={cn(
-        'flex items-center gap-2 text-secondary-dark text-sm select-none',
+        'text-secondary-dark flex select-none items-center gap-2 text-sm',
         className,
       )}
     >

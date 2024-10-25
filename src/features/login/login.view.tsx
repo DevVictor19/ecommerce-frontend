@@ -23,19 +23,19 @@ export default async function LoginView() {
       <section className="relative flex flex-1 items-center justify-center px-6">
         <div className="flex w-full max-w-xl flex-col  items-center">
           <div className="mb-6 flex size-16 items-center justify-center rounded-full border border-slate-200 bg-slate-100 p-4">
-            <ShoppingBag className="grow-0 text-secondary-dark" size={24} />
+            <ShoppingBag className="text-secondary-dark grow-0" size={24} />
           </div>
           <div className="mb-10 text-center">
-            <h1 className="mb-1 text-2xl text-secondary-dark">Hello again!</h1>
+            <h1 className="text-secondary-dark mb-1 text-2xl">Hello again!</h1>
             <h2 className="text-secondary-dark opacity-50">
               Enter your account and start shopping
             </h2>
           </div>
           <LoginForm />
         </div>
-        <h3 className="absolute bottom-8 text-secondary-dark opacity-60">
+        <h3 className="text-secondary-dark absolute bottom-8 opacity-60">
           Don&apos;t have an account yet?{' '}
-          <Link href={APP_ROUTE.SIGNUP} className="font-bold text-primary-dark">
+          <Link href={APP_ROUTE.SIGNUP} className="text-primary-dark font-bold">
             Sign Up
           </Link>
         </h3>

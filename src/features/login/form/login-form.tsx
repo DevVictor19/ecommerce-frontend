@@ -31,7 +31,7 @@ export default function LoginForm() {
       </div>
       <div className="mt-4 flex items-center justify-between">
         <CheckBox label="Remember me" name="remember" value="on" />
-        <span className="text-sm font-medium text-secondary-dark">
+        <span className="text-secondary-dark text-sm font-medium">
           Password Recovery
         </span>
       </div>

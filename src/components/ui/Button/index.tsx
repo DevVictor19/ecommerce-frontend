@@ -18,7 +18,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        'flex justify-center h-12 w-full rounded-md bg-primary-dark px-3 items-center text-white drop-shadow-md hover:bg-primary-default active:bg-primary-default',
+        'bg-primary-dark hover:bg-primary-default active:bg-primary-default flex h-12 w-full items-center justify-center px-3 text-white drop-shadow-md',
         className,
       )}
       {...rest}

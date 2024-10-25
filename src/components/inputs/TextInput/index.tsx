@@ -23,7 +23,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         </label>
         <input
           className={cn(
-            'h-12 w-full rounded-md border border-slate-200 bg-slate-100 px-4 text-secondary-dark outline-secondary-default',
+            'text-secondary-dark outline-secondary-default h-12 w-full rounded-md border border-slate-200 bg-slate-100 px-4',
             {
               'border-red-500 focus:outline-none': error,
             },
