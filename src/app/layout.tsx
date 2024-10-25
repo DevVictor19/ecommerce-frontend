@@ -3,6 +3,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 
+import QueryProvider from '@/contexts/QueryContext';
+
 const roboto = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
   subsets: ['latin'],
@@ -20,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html className={roboto.className} lang="en">
-      <body>{children}</body>
+      <body>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
