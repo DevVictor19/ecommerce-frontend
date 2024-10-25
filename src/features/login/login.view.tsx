@@ -13,10 +13,10 @@ export default async function LoginView() {
       <section className="hidden flex-1 items-center justify-center bg-slate-100 p-8 lg:flex">
         <div className="relative size-full overflow-hidden rounded-xl">
           <Image
+            className="object-cover"
             src={loginWallpaper}
             fill
             alt="Two styled guys sitting together"
-            objectFit="cover"
           />
         </div>
       </section>
