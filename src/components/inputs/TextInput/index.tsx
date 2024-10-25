@@ -17,25 +17,23 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     ref,
   ) => {
     return (
-      <div className={cn('flex flex-col', className)}>
-        <label className="text-secondary-dark" htmlFor={id}>
+      <div className={cn('flex flex-col gap-1', className)}>
+        <label
+          className={cn('text-secondary-dark', { 'text-error': error })}
+          htmlFor={id}
+        >
           {label}
         </label>
         <input
-          className={cn(
-            'text-secondary-dark outline-secondary-default h-12 w-full rounded-md border border-slate-200 bg-slate-100 px-4',
-            {
-              'border-red-500 focus:outline-none': error,
-            },
-          )}
+          className={cn('input input-primary w-full', {
+            'input-error': error,
+          })}
           {...rest}
           id={id}
           ref={ref}
         />
         {errorMessage && (
-          <p className="mt-1 text-xs font-medium text-red-500">
-            {errorMessage}
-          </p>
+          <p className="text-error mt-1 text-xs font-medium">{errorMessage}</p>
         )}
       </div>
     );

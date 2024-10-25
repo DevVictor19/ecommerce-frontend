@@ -31,12 +31,12 @@ export default function LoginForm() {
       </div>
       <div className="mt-4 flex items-center justify-between">
         <CheckBox label="Remember me" name="remember" value="on" />
-        <span className="text-secondary-dark text-sm font-medium">
+        <span className="text-primary text-sm font-medium">
           Password Recovery
         </span>
       </div>
       <Button
-        className="mt-12"
+        className="mt-8"
         label="Login"
         type="submit"
         isLoading={isLoading}

@@ -37,7 +37,7 @@ export default function SignupForm() {
         />
       </div>
       <Button
-        className="mt-12"
+        className="mt-8"
         label="Signup"
         type="submit"
         isLoading={isLoading}

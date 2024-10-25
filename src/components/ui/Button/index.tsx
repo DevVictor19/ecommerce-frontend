@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes } from 'react';
-import { RotateCw } from 'react-feather';
 
 import { cn } from '@/utils/cn';
 
@@ -16,14 +15,8 @@ export default function Button({
   ...rest
 }: ButtonProps) {
   return (
-    <button
-      className={cn(
-        'bg-primary-dark hover:bg-primary-default active:bg-primary-default flex h-12 w-full items-center justify-center rounded-md px-3 text-white drop-shadow-md',
-        className,
-      )}
-      {...rest}
-    >
-      {isLoading ? <RotateCw className="animate-spin" /> : label}
+    <button className={cn('btn btn-primary btn-block', className)} {...rest}>
+      {isLoading ? <span className="loading loading-spinner"></span> : label}
     </button>
   );
 }
