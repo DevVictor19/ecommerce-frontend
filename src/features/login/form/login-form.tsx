@@ -1,6 +1,5 @@
 'use client';
 
-import CheckBox from '@/components/inputs/Checkbox';
 import TextInput from '@/components/inputs/TextInput';
 import Button from '@/components/ui/Button';
 
@@ -11,7 +10,7 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={submitHandler} className="w-full">
-      <div className="flex flex-col gap-4">
+      <div className="mb-4 flex flex-col gap-4">
         <TextInput
           label="E-mail"
           type="text"
@@ -29,12 +28,7 @@ export default function LoginForm() {
           {...register('password')}
         />
       </div>
-      <div className="mt-4 flex items-center justify-between">
-        <CheckBox label="Remember me" name="remember" value="on" />
-        <span className="text-primary text-sm font-medium">
-          Password Recovery
-        </span>
-      </div>
+      <a className="text-primary text-sm font-medium">Password Recovery</a>
       <Button
         className="mt-8"
         label="Login"
