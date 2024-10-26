@@ -9,7 +9,7 @@ import LoginForm from './form/login-form';
 
 export default async function LoginView() {
   return (
-    <main className="flex min-h-screen">
+    <main className="bg-base-100 flex min-h-screen">
       <section className="bg-base-300 hidden flex-1 items-center justify-center p-8 lg:flex">
         <div className="relative size-full overflow-hidden rounded-xl">
           <Image

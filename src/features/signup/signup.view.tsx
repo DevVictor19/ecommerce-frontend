@@ -9,7 +9,7 @@ import SignupForm from './form/signup-form';
 
 export default function SignupView() {
   return (
-    <main className="flex min-h-screen">
+    <main className="bg-base-100 flex min-h-screen">
       <section className="relative flex flex-1 items-center justify-center px-6">
         <div className="flex w-full max-w-xl flex-col items-center">
           <div className="border-base-200 bg-base-300 mb-6 flex size-16 items-center justify-center rounded-full border p-4">
