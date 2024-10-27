@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button';
 import { useLoginFormModel } from './login-form.model';
 
 export default function LoginForm() {
-  const { errors, isLoading, register, submitHandler } = useLoginFormModel();
+  const { errors, isPending, register, submitHandler } = useLoginFormModel();
 
   return (
     <form onSubmit={submitHandler} className="w-full">
@@ -33,8 +33,8 @@ export default function LoginForm() {
         className="mt-8"
         label="Login"
         type="submit"
-        isLoading={isLoading}
-        disabled={isLoading}
+        isLoading={isPending}
+        disabled={isPending}
       />
     </form>
   );

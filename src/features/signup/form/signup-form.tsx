@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button';
 import { useSignupFormModel } from './signup-form.model';
 
 export default function SignupForm() {
-  const { errors, isLoading, register, submitHandler } = useSignupFormModel();
+  const { errors, isPending, register, submitHandler } = useSignupFormModel();
 
   return (
     <form onSubmit={submitHandler} className="w-full">
@@ -40,8 +40,8 @@ export default function SignupForm() {
         className="mt-8"
         label="Signup"
         type="submit"
-        isLoading={isLoading}
-        disabled={isLoading}
+        isLoading={isPending}
+        disabled={isPending}
       />
     </form>
   );

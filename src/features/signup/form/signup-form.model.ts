@@ -1,15 +1,15 @@
 import { useRouter } from 'next/navigation';
 
+import { useSignupMutation } from '@/data/auth';
 import { APP_ROUTE } from '@/enums/app-routes.enum';
 
 import { useSignupForm } from './signup-form.hook';
-import { useSignupFormMutation } from './signup-form.mutations';
 import { SignupSchema } from './signup-form.schema';
 
 export function useSignupFormModel() {
   const { push } = useRouter();
 
-  const { mutateAsync, isLoading } = useSignupFormMutation();
+  const { mutateAsync, isPending } = useSignupMutation();
 
   const { errors, register, handleSubmit, reset, setError } = useSignupForm();
 
@@ -30,7 +30,7 @@ export function useSignupFormModel() {
 
   return {
     errors,
-    isLoading,
+    isPending,
     register,
     submitHandler,
   };
