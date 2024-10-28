@@ -5,7 +5,7 @@ import CartButton from '../cart-button/cart-button';
 
 export default function Header() {
   return (
-    <header className="navbar bg-base-100 px-6 drop-shadow-md">
+    <header className="navbar bg-base-100 relative z-10 px-6 drop-shadow-md">
       <div className="flex flex-1 items-center gap-3">
         <div>
           <ShoppingBag />
