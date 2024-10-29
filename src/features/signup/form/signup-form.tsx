@@ -3,10 +3,11 @@
 import TextInput from '@/components/inputs/TextInput';
 import Button from '@/components/ui/Button';
 
-import { useSignupFormModel } from './signup-form.model';
+import { useSignupFormViewModel } from './signup-form.view-model';
 
 export default function SignupForm() {
-  const { errors, isPending, register, submitHandler } = useSignupFormModel();
+  const { errors, isPending, register, submitHandler } =
+    useSignupFormViewModel();
 
   return (
     <form onSubmit={submitHandler} className="w-full">

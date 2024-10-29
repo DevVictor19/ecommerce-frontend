@@ -1,12 +1,12 @@
 import { useRouter } from 'next/navigation';
 
-import { useLoginMutation } from '@/data/auth';
 import { APP_ROUTE } from '@/enums/app-routes.enum';
+import { useLoginMutation } from '@/models/auth';
 
 import { useLoginForm } from './login-form.hook';
 import { LoginSchema } from './login-form.schema';
 
-export function useLoginFormModel() {
+export function useLoginFormViewModel() {
   const { push } = useRouter();
 
   const { mutateAsync, isPending } = useLoginMutation();

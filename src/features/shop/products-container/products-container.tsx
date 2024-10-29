@@ -3,11 +3,11 @@
 import Pagination from '@/components/navigation/Pagination';
 
 import ProductsGrid from '../products-grid/products-grid';
-import { useProductsContainerModel } from './products-container.model';
+import { useProductsContainerViewModel } from './products-container.view-model';
 
 export default function ProductsContainer() {
   const { data, handleChangePage, isError, isLoading } =
-    useProductsContainerModel();
+    useProductsContainerViewModel();
 
   return (
     <div className="py-16">

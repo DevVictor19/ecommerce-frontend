@@ -3,10 +3,11 @@
 import TextInput from '@/components/inputs/TextInput';
 import Button from '@/components/ui/Button';
 
-import { useLoginFormModel } from './login-form.model';
+import { useLoginFormViewModel } from './login-form.view-model';
 
 export default function LoginForm() {
-  const { errors, isPending, register, submitHandler } = useLoginFormModel();
+  const { errors, isPending, register, submitHandler } =
+    useLoginFormViewModel();
 
   return (
     <form onSubmit={submitHandler} className="w-full">

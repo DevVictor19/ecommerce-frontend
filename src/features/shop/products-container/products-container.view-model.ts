@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { useFindAllProductsQuery } from '@/data/products';
+import { useFindAllProductsQuery } from '@/models/products';
 
-export function useProductsContainerModel() {
+export function useProductsContainerViewModel() {
   const [page, setPage] = useState(0);
 
   const { data, isError, isLoading } = useFindAllProductsQuery({ page });
