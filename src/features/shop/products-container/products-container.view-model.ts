@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { useFindAllProductsQuery } from '@/models/products.model';
+import { useFindAllProducts } from '@/models/products.model';
 
 export function useProductsContainerViewModel() {
   const [page, setPage] = useState(0);
 
-  const { data, isError, isLoading } = useFindAllProductsQuery({ page });
+  const { data, isError, isLoading } = useFindAllProducts({ page });
 
   const handleChangePage = (newPage: number) => {
     setPage(newPage);

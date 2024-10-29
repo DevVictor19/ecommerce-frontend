@@ -2,10 +2,10 @@ import { useMutation } from '@tanstack/react-query';
 
 import { login, signup } from '@/services/auth/auth.service';
 
-export function useLoginMutation() {
+export function useLogin() {
   return useMutation({ mutationFn: login });
 }
 
-export function useSignupMutation() {
+export function useSignup() {
   return useMutation({ mutationFn: signup });
 }

@@ -7,7 +7,7 @@ import {
   findProductById,
 } from '@/services/products/products.service';
 
-export function useFindAllProductsQuery(params?: FindAllProductsRequest) {
+export function useFindAllProducts(params?: FindAllProductsRequest) {
   return useQuery({
     queryFn: () => findAllProducts(params),
     queryKey: [`${API_ENDPOINT.PRODUCTS}`, { params }],
