@@ -34,7 +34,7 @@ export default function ProductsGrid({
   }
 
   return (
-    <section className="bg-base-100 grid grid-cols-1 justify-items-center gap-y-24 md:grid-cols-2 xl:grid-cols-3">
+    <section className="bg-base-100 grid grid-cols-1 justify-items-center gap-y-24 px-5 md:grid-cols-2 xl:grid-cols-3">
       {data?.content.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

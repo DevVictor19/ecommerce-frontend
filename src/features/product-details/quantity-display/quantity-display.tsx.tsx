@@ -19,17 +19,17 @@ export default function QuantityDisplay({
         <p className="mb-4">Quantity:</p>
         <div className="flex items-center gap-2">
           <button
-            className="btn btn-square"
+            className="btn btn-sm md:btn-md btn-square"
             type="button"
             onClick={onDecrement}
           >
             -
           </button>
-          <div className="flex size-11 items-center justify-center rounded-sm border">
+          <div className="flex size-8 items-center justify-center rounded-sm border md:size-11">
             {quantity}
           </div>
           <button
-            className="btn btn-square"
+            className="btn btn-sm md:btn-md btn-square"
             type="button"
             onClick={onIncrement}
           >
