@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link.js';
 
 import { Product } from '@/services/products/contracts';
 import { formatPrice } from '@/utils/format-price';
@@ -52,9 +53,14 @@ export default function ProductDetailsContent({
           quantity={quantity}
         />
         <div className="divider"></div>
-        <button className="btn btn-primary" type="button">
-          Add To Cart
-        </button>
+        <div className="flex items-center gap-4">
+          <Link className="btn btn-outline" href="/shop">
+            Go Back
+          </Link>
+          <button className="btn btn-primary" type="button">
+            Add To Cart
+          </button>
+        </div>
       </article>
     </main>
   );
