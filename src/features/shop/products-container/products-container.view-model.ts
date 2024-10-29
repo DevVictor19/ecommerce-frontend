@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useFindAllProductsQuery } from '@/models/products';
+import { useFindAllProductsQuery } from '@/models/products.model';
 
 export function useProductsContainerViewModel() {
   const [page, setPage] = useState(0);
