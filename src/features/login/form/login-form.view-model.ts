@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 
 import { APP_ROUTE } from '@/enums/app-routes.enum';
-import { useLoginMutation } from '@/models/auth';
+import { useLoginMutation } from '@/models/auth.model';
 
 import { useLoginForm } from './login-form.hook';
 import { LoginSchema } from './login-form.schema';
