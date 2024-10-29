@@ -21,3 +21,7 @@ export type FindAllProductsParams = {
 export type FindAllProductsRequest = Partial<FindAllProductsParams>;
 
 export type FindAllProductsResponse = Page<Product>;
+
+export type FindProductByIdRequest = { id: string };
+
+export type FindProductByIdResponse = Product;
