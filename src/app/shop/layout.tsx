@@ -1,4 +1,7 @@
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import { ReactNode } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import Header from '@/features/shop/header/header';
 
@@ -11,6 +14,7 @@ export default function ShopLayout({ children }: ShopLayoutProps) {
     <>
       <Header />
       {children}
+      <ToastContainer />
     </>
   );
 }
