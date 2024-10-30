@@ -47,7 +47,7 @@ export default function ProductDetailsContent({
         <div className="divider"></div>
         <div>
           <h3 className="text-xl md:text-3xl">
-            $ {formatPrice(product.price)}{' '}
+            ${formatPrice(product.price)}{' '}
             <span className="text-base opacity-70 md:text-lg">
               Payment in full
             </span>

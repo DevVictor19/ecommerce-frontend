@@ -39,7 +39,7 @@ export default function QuantityDisplay({
       </div>
       <div className="mb-8">
         <p className="mb-4">Total:</p>
-        <h3 className="text-xl md:text-3xl">$ {formatPrice(total)} </h3>
+        <h3 className="text-xl md:text-3xl">${formatPrice(total)} </h3>
       </div>
     </div>
   );
