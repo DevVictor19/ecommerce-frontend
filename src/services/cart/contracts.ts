@@ -1,8 +1,12 @@
 import { Product } from '../products/contracts';
 
+export type CartProduct = Omit<Product, 'createdAt'> & {
+  inCartQuantity: number;
+};
+
 export type Cart = {
   id: string;
-  products: Omit<Product, 'createdAt'>[];
+  products: CartProduct[];
   productsQuantity: number;
   totalPrice: number;
   createdAt: string;
