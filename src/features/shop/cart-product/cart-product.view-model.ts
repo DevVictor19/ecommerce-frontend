@@ -19,12 +19,12 @@ export default function useCartProductViewModel(
     try {
       await addProduct({ productId, quantity: 1 });
 
-      toast.success('Added 1 unit', {
+      toast.success('Added 1 unit.', {
         position,
         autoClose,
       });
     } catch {
-      toast.error('Unable to add 1 unit', {
+      toast.error('Could not add 1 unit.', {
         position,
       });
     }
@@ -34,12 +34,12 @@ export default function useCartProductViewModel(
     try {
       await removeProduct({ productId, quantity: 1 });
 
-      toast.success('Removed 1 unit', {
+      toast.success('Removed 1 unit.', {
         position,
         autoClose,
       });
     } catch {
-      toast.error('Unable to remove 1 unit', {
+      toast.error('Could not remove 1 unit.', {
         position,
       });
     }
@@ -49,12 +49,12 @@ export default function useCartProductViewModel(
     try {
       await removeProduct({ productId, quantity: inCartQuantity });
 
-      toast.success('Removed product', {
+      toast.success('Product removed.', {
         position,
         autoClose,
       });
     } catch {
-      toast.error('Unable to remove product', {
+      toast.error('Could not remove product.', {
         position,
       });
     }
