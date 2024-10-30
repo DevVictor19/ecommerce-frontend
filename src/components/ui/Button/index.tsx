@@ -15,7 +15,7 @@ export default function Button({
   ...rest
 }: ButtonProps) {
   return (
-    <button className={cn('btn btn-primary btn-block', className)} {...rest}>
+    <button className={cn('btn', className)} {...rest}>
       {isLoading ? <span className="loading loading-spinner"></span> : label}
     </button>
   );

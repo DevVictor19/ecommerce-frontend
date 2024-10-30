@@ -31,7 +31,7 @@ export default function LoginForm() {
       </div>
       <a className="text-primary text-sm font-medium">Password Recovery</a>
       <Button
-        className="mt-8"
+        className="btn-block btn-primary mt-8"
         label="Login"
         type="submit"
         isLoading={isPending}

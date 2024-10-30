@@ -38,7 +38,7 @@ export default function SignupForm() {
         />
       </div>
       <Button
-        className="mt-8"
+        className="btn-block btn-primary mt-8"
         label="Signup"
         type="submit"
         isLoading={isPending}
