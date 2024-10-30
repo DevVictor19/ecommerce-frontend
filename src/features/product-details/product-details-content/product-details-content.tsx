@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link.js';
 
+import Button from '@/components/ui/Button';
 import { APP_ROUTE } from '@/enums/app-routes.enum';
 import { Product } from '@/services/products/contracts';
 import { formatPrice } from '@/utils/format-price';
@@ -15,8 +16,14 @@ type ProductDetailsContentProps = {
 export default function ProductDetailsContent({
   product,
 }: ProductDetailsContentProps) {
-  const { handleDecrement, handleIncrement, quantity, total } =
-    useProductDetailsContentViewModel(product.price);
+  const {
+    handleAddProductToCart,
+    handleDecrement,
+    handleIncrement,
+    quantity,
+    total,
+    isPending,
+  } = useProductDetailsContentViewModel(product);
 
   return (
     <main className="flex min-h-[calc(100vh-64px)] flex-col p-6 md:flex-row">
@@ -58,9 +65,13 @@ export default function ProductDetailsContent({
           <Link className="btn btn-outline" href={APP_ROUTE.SHOP}>
             Go Back
           </Link>
-          <button className="btn btn-primary" type="button">
-            Add To Cart
-          </button>
+          <Button
+            label="Add To Cart"
+            type="button"
+            onClick={handleAddProductToCart}
+            disabled={isPending}
+            isLoading={isPending}
+          />
         </div>
       </article>
     </main>

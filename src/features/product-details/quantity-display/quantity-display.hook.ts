@@ -18,10 +18,16 @@ export function useQuantityDisplay(initialTotal: number) {
     setQuantity((prev) => prev + 1);
   };
 
+  const handleReset = () => {
+    setTotal(initialTotal);
+    setQuantity(1);
+  };
+
   return {
     total,
     quantity,
     handleDecrement,
     handleIncrement,
+    handleReset,
   };
 }
