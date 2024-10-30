@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link.js';
 
+import { APP_ROUTE } from '@/enums/app-routes.enum';
 import { Product } from '@/services/products/contracts';
 import { formatPrice } from '@/utils/format-price';
 
@@ -54,7 +55,7 @@ export default function ProductDetailsContent({
         />
         <div className="divider"></div>
         <div className="flex items-center gap-4">
-          <Link className="btn btn-outline" href="/shop">
+          <Link className="btn btn-outline" href={APP_ROUTE.SHOP}>
             Go Back
           </Link>
           <button className="btn btn-primary" type="button">
