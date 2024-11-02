@@ -46,12 +46,16 @@ export default function ProductDetailsContent({
         </div>
         <div className="divider"></div>
         <div>
-          <h3 className="text-xl md:text-3xl">
+          <h3 className="mb-1 text-xl md:text-3xl">
             ${formatPrice(product.price)}{' '}
             <span className="text-base opacity-70 md:text-lg">
               Payment in full
             </span>
           </h3>
+          <p className="text-xs md:text-sm">
+            In Stock:{' '}
+            <span className="opacity-80">{product.stockQuantity}</span>
+          </p>
         </div>
         <div className="divider"></div>
         <QuantityDisplay
