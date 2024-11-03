@@ -11,6 +11,8 @@ export function useShopViewModel() {
 
   const [params, setParams] = useState<Partial<FindAllProductsParams>>({
     page: 0,
+    sortBy: 'createdAt',
+    sort: 'DESC',
   });
 
   const { data, isError, isLoading } = useFindAllProducts(params);
@@ -26,7 +28,7 @@ export function useShopViewModel() {
   const handleChangeFilter = (filterKind: FilterKind) => {
     switch (filterKind) {
       case 'new-products':
-        setParams((prev) => ({ ...prev, sortBy: 'createdAt', sort: 'ASC' }));
+        setParams((prev) => ({ ...prev, sortBy: 'createdAt', sort: 'DESC' }));
         setCurrentFilter('new-products');
         break;
 
