@@ -5,4 +5,5 @@ export enum APP_ROUTE {
   SHOP = '/shop',
   PRODUCT = '/shop/product',
   CHECKOUT = '/shop/checkout',
+  ORDERS = '/shop/orders',
 }
