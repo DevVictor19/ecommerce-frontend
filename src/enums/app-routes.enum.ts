@@ -4,4 +4,5 @@ export enum APP_ROUTE {
   ADMIN = '/admin',
   SHOP = '/shop',
   PRODUCT = '/shop/product',
+  CHECKOUT = '/shop/checkout',
 }
