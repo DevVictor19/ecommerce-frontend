@@ -10,13 +10,13 @@ import {
 export function useFindAllProducts(params?: FindAllProductsRequest) {
   return useQuery({
     queryFn: () => findAllProducts(params),
-    queryKey: [`${API_ENDPOINT.PRODUCTS}`, { params }],
+    queryKey: [API_ENDPOINT.PRODUCTS, { params }],
   });
 }
 
 export function useFindProductById(id: string) {
   return useQuery({
     queryFn: () => findProductById({ id }),
-    queryKey: [`${API_ENDPOINT.PRODUCTS}/${id}`],
+    queryKey: [API_ENDPOINT.PRODUCTS, id],
   });
 }
