@@ -1,12 +1,15 @@
-import { toast } from 'react-toastify';
+import { ToastOptions } from 'react-toastify';
 
+import { executeWithToastFeedback } from '@/lib/toast';
 import {
   useAddProductToMyCart,
   useRemoveProductFromMyCart,
 } from '@/models/cart.model';
 
-const autoClose = 2000;
-const position = 'top-left';
+const config: ToastOptions = {
+  autoClose: 2000,
+  position: 'top-left',
+};
 
 export default function useCartProductViewModel(
   productId: string,
@@ -15,49 +18,31 @@ export default function useCartProductViewModel(
   const { mutateAsync: addProduct } = useAddProductToMyCart();
   const { mutateAsync: removeProduct } = useRemoveProductFromMyCart();
 
-  const handleIncrement = async () => {
-    try {
-      await addProduct({ productId, quantity: 1 });
-
-      toast.success('Added 1 unit.', {
-        position,
-        autoClose,
-      });
-    } catch {
-      toast.error('Could not add 1 unit.', {
-        position,
-      });
-    }
+  const handleIncrement = () => {
+    executeWithToastFeedback({
+      callback: () => addProduct({ productId, quantity: 1 }),
+      genericError: 'Could not add 1 unit',
+      genericSuccess: 'Added 1 unit',
+      config,
+    });
   };
 
-  const handleDecrement = async () => {
-    try {
-      await removeProduct({ productId, quantity: 1 });
-
-      toast.success('Removed 1 unit.', {
-        position,
-        autoClose,
-      });
-    } catch {
-      toast.error('Could not remove 1 unit.', {
-        position,
-      });
-    }
+  const handleDecrement = () => {
+    executeWithToastFeedback({
+      callback: () => removeProduct({ productId, quantity: 1 }),
+      genericError: 'Could not remove 1 unit',
+      genericSuccess: 'Removed 1 unit',
+      config,
+    });
   };
 
-  const handleRemove = async () => {
-    try {
-      await removeProduct({ productId, quantity: inCartQuantity });
-
-      toast.success('Product removed.', {
-        position,
-        autoClose,
-      });
-    } catch {
-      toast.error('Could not remove product.', {
-        position,
-      });
-    }
+  const handleRemove = () => {
+    executeWithToastFeedback({
+      callback: () => removeProduct({ productId, quantity: inCartQuantity }),
+      genericError: 'Could not remove product',
+      genericSuccess: 'Product removed',
+      config,
+    });
   };
 
   return {

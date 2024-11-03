@@ -1,6 +1,4 @@
-import { AxiosError, isAxiosError } from 'axios';
-import { toast } from 'react-toastify';
-
+import { executeWithToastFeedback } from '@/lib/toast';
 import { useAddProductToMyCart } from '@/models/cart.model';
 import { Product } from '@/services/products/contracts';
 
@@ -13,30 +11,16 @@ export function useProductDetailsContentViewModel(product: Product) {
   const { mutateAsync, isPending } = useAddProductToMyCart();
 
   const handleAddProductToCart = async () => {
-    try {
-      await mutateAsync({ productId: product.id, quantity });
-
-      toast.success(`${quantity} product(s) have been added to the cart`, {
+    await executeWithToastFeedback({
+      callback: () => mutateAsync({ productId: product.id, quantity }),
+      genericError: 'Unable to add products to cart',
+      genericSuccess: `${quantity} product(s) have been added to the cart`,
+      config: {
         position: 'top-left',
-      });
-    } catch (err) {
-      if (isAxiosError(err)) {
-        const { message } = err.response?.data as AxiosError<{
-          message: string;
-        }>;
+      },
+    });
 
-        toast.error(message, {
-          position: 'top-left',
-        });
-        return;
-      }
-
-      toast.error('Unable to add products to cart', {
-        position: 'top-left',
-      });
-    } finally {
-      handleReset();
-    }
+    handleReset();
   };
 
   return {
