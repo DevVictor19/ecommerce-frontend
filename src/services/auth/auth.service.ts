@@ -17,6 +17,8 @@ export async function login(request: LoginRequest) {
 
     setAuthTokenCookie(data.token);
   } catch (error) {
+    console.error(error);
+
     if (isAxiosError(error)) {
       const message = error.response?.data?.message ?? 'Internal Server Error';
 
@@ -31,6 +33,8 @@ export async function signup(request: SignupRequest) {
   try {
     await api.post(`${API_ENDPOINT.AUTH}/signup`, request);
   } catch (error) {
+    console.error(error);
+
     if (isAxiosError(error)) {
       const message = error.response?.data?.message ?? 'Internal Server Error';
 
