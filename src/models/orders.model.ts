@@ -1,7 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { API_ENDPOINT } from '@/enums/api-endpoints.enum';
-import { createMyOrder } from '@/services/orders/orders.service';
+import { FindAllMyOrdersRequest } from '@/services/orders/contracts';
+import {
+  createMyOrder,
+  findAllMyOrders,
+} from '@/services/orders/orders.service';
 
 export function useCreateMyOrder() {
   const queryClient = useQueryClient();
@@ -9,8 +13,16 @@ export function useCreateMyOrder() {
   return useMutation({
     mutationFn: createMyOrder,
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_ORDERS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_CARTS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.PRODUCTS] });
     },
+  });
+}
+
+export function useFindAllMyOrders(params?: FindAllMyOrdersRequest) {
+  return useQuery({
+    queryFn: () => findAllMyOrders(params),
+    queryKey: [API_ENDPOINT.CLIENT_ORDERS, { params }],
   });
 }
