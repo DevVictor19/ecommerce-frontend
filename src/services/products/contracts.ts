@@ -1,4 +1,5 @@
 import { Page } from '@/types/page';
+import { Params } from '@/types/params';
 
 export type Product = {
   id: string;
@@ -10,11 +11,7 @@ export type Product = {
   createdAt: string;
 };
 
-export type FindAllProductsParams = {
-  page: number;
-  size: number;
-  sort: 'ASC' | 'DESC';
-  sortBy: keyof Product;
+export type FindAllProductsParams = Params<Product> & {
   name: string;
 };
 
