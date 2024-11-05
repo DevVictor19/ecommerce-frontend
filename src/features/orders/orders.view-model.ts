@@ -29,6 +29,7 @@ export function useOrdersViewModel() {
 
         setParams((prev) => ({
           ...prev,
+          page: 0,
           status: PAYMENT_STATUS.WAITING_PAYMENT,
         }));
         break;
@@ -38,6 +39,7 @@ export function useOrdersViewModel() {
 
         setParams((prev) => ({
           ...prev,
+          page: 0,
           status: PAYMENT_STATUS.PAID,
         }));
 
