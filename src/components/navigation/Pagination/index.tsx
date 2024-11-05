@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/utils/cn';
+
 import { usePagination } from './pagination.hook';
 
 type PaginationProps = {
