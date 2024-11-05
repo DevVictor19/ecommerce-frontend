@@ -28,7 +28,7 @@ export default function ShopView() {
         />
       </div>
       <ProductsGrid data={data} isError={isError} isLoading={isLoading} />
-      <div className="mt-8 flex w-full justify-center ">
+      <div className="mt-8 flex w-full justify-center">
         {data && (
           <Pagination
             currentPage={data.page.number}
