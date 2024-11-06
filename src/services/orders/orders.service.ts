@@ -25,3 +25,9 @@ export async function findAllMyOrders(
   });
   return data;
 }
+
+export async function cancelMyOrder(orderId: string) {
+  await api.delete(`${API_ENDPOINT.CLIENT_ORDERS}/${orderId}`, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+  });
+}
