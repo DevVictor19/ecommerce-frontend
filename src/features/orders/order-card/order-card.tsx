@@ -1,10 +1,11 @@
-import Link from 'next/link';
-
-import { APP_ROUTE } from '@/enums/app-routes.enum';
 import { Order, PAYMENT_STATUS } from '@/services/orders/contracts';
 import { cn } from '@/utils/cn';
 import { formatDateString } from '@/utils/format-date';
 import { formatPrice } from '@/utils/format-price';
+
+import CardProductsList from '../card-products-list/card-products-list';
+import PaidActions from '../paid-actions/paid-actions';
+import WaitingForPaymentActions from '../waiting-for-payment-actions/waiting-for-payment-actions';
 
 type OrderCardProps = {
   order: Order;
@@ -47,29 +48,9 @@ export default function OrderCard({ order, index }: OrderCardProps) {
           {isPaid && 'Paid'}
         </p>
         <div className="divider">Products</div>
-        <ul className="h-24 overflow-y-auto">
-          {order.cart.products.map((p) => (
-            <li key={p.id}>
-              {p.name} <span className="font-medium">x{p.inCartQuantity}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="card-actions justify-end">
-          {isWaitingForPayment && (
-            <Link
-              className="btn btn-secondary btn-outline"
-              href={`${APP_ROUTE.ORDERS}/${order.id}/payment`}
-            >
-              Finish Payment
-            </Link>
-          )}
-          {isPaid && (
-            <button className="btn btn-secondary btn-outline" type="button">
-              See Payment
-            </button>
-          )}
-          <button className="btn btn-secondary">See Cart</button>
-        </div>
+        <CardProductsList products={order.cart.products} />
+        {isPaid && <PaidActions />}
+        {isWaitingForPayment && <WaitingForPaymentActions orderId={order.id} />}
       </div>
     </div>
   );
