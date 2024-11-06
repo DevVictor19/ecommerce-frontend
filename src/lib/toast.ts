@@ -22,11 +22,19 @@ export async function executeWithToastFeedback<T>({
     return data;
   } catch (error) {
     if (isAxiosError(error)) {
-      const { message } = error.response?.data as AxiosError<{
-        message: string;
-      }>;
+      const payload = error.response?.data as AxiosError<
+        | {
+            message: string;
+          }
+        | undefined
+      >;
 
-      toast.error(message, config);
+      if (payload) {
+        toast.error(payload.message, config);
+      } else {
+        toast.error(genericError, config);
+      }
+
       return;
     }
 
