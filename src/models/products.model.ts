@@ -14,9 +14,9 @@ export function useFindAllProducts(params?: FindAllProductsRequest) {
   });
 }
 
-export function useFindProductById(id: string) {
+export function useFindProductById(productId: string) {
   return useQuery({
-    queryFn: () => findProductById({ id }),
-    queryKey: [API_ENDPOINT.PRODUCTS, id],
+    queryFn: () => findProductById(productId),
+    queryKey: [API_ENDPOINT.PRODUCTS, productId],
   });
 }
