@@ -6,6 +6,7 @@ import {
   cancelMyOrder,
   createMyOrder,
   findAllMyOrders,
+  findOrderById,
 } from '@/services/orders/orders.service';
 
 export function useCreateMyOrder() {
@@ -25,6 +26,13 @@ export function useFindAllMyOrders(params?: FindAllMyOrdersRequest) {
   return useQuery({
     queryFn: () => findAllMyOrders(params),
     queryKey: [API_ENDPOINT.CLIENT_ORDERS, { params }],
+  });
+}
+
+export function useFindOrderById(orderId: string) {
+  return useQuery({
+    queryFn: () => findOrderById(orderId),
+    queryKey: [API_ENDPOINT.ORDERS, orderId],
   });
 }
 
