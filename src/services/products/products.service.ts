@@ -6,7 +6,6 @@ import { parseToStringRecord } from '@/utils/parse-to-string-record';
 import {
   FindAllProductsRequest,
   FindAllProductsResponse,
-  FindProductByIdRequest,
   FindProductByIdResponse,
 } from './contracts';
 
@@ -20,10 +19,10 @@ export async function findAllProducts(
   return data;
 }
 
-export async function findProductById({
-  id,
-}: FindProductByIdRequest): Promise<FindProductByIdResponse> {
-  const { data } = await api.get(`${API_ENDPOINT.PRODUCTS}/${id}`, {
+export async function findProductById(
+  productId: string,
+): Promise<FindProductByIdResponse> {
+  const { data } = await api.get(`${API_ENDPOINT.PRODUCTS}/${productId}`, {
     headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
   });
   return data;
