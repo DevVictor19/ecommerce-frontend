@@ -8,18 +8,31 @@ type Params<T> = {
   genericSuccess: string;
 };
 
+type Result<T> =
+  | {
+      data: T;
+      error: false;
+    }
+  | {
+      data: undefined;
+      error: true;
+    };
+
 export async function executeWithToastFeedback<T>({
   callback,
   config,
   genericError,
   genericSuccess,
-}: Params<T>): Promise<T | undefined> {
+}: Params<T>): Promise<Result<T>> {
   try {
     const data = await callback();
 
     toast.success(genericSuccess, config);
 
-    return data;
+    return {
+      data,
+      error: false,
+    };
   } catch (error) {
     if (isAxiosError(error)) {
       const payload = error.response?.data as AxiosError<
@@ -35,9 +48,17 @@ export async function executeWithToastFeedback<T>({
         toast.error(genericError, config);
       }
 
-      return;
+      return {
+        data: undefined,
+        error: true,
+      };
     }
 
     toast.error(genericError, config);
+
+    return {
+      data: undefined,
+      error: true,
+    };
   }
 }
