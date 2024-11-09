@@ -21,7 +21,7 @@ export function useCheckoutViewModel() {
   } = useCreateMyOrder();
 
   const handleCreateOrder = async () => {
-    const result = await executeWithToastFeedback({
+    const { error, data } = await executeWithToastFeedback({
       callback: () => mutateAsync(),
       genericSuccess: 'Order created! You are about to be redirected...',
       genericError: 'Could not finish order',
@@ -30,8 +30,8 @@ export function useCheckoutViewModel() {
       },
     });
 
-    if (result) {
-      setTimeout(() => push(`${APP_ROUTE.ORDERS}/${result.id}/payment`), 2000);
+    if (!error) {
+      setTimeout(() => push(`${APP_ROUTE.ORDERS}/${data.id}/payment`), 2000);
     }
   };
 
