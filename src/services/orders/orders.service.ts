@@ -7,6 +7,7 @@ import {
   CreateMyOrderResponse,
   FindAllMyOrdersRequest,
   FindAllMyOrdersResponse,
+  Order,
 } from './contracts';
 
 export async function createMyOrder(): Promise<CreateMyOrderResponse> {
@@ -22,6 +23,13 @@ export async function findAllMyOrders(
   const { data } = await api.get(API_ENDPOINT.CLIENT_ORDERS, {
     headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
     params: params && new URLSearchParams(parseToStringRecord(params)),
+  });
+  return data;
+}
+
+export async function findOrderById(orderId: string): Promise<Order> {
+  const { data } = await api.get(`${API_ENDPOINT.ORDERS}/${orderId}`, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
   });
   return data;
 }
