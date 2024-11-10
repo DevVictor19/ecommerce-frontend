@@ -10,6 +10,7 @@ export function usePayWithCreditCard() {
     mutationFn: payWithCreditCard,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_ORDERS] });
+      queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.PRODUCTS] });
     },
   });
 }

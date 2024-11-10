@@ -17,7 +17,6 @@ export function useCreateMyOrder() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_ORDERS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_CARTS] });
-      queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.PRODUCTS] });
     },
   });
 }
