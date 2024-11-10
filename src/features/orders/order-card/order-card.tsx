@@ -49,7 +49,7 @@ export default function OrderCard({ order, index }: OrderCardProps) {
         </p>
         <div className="divider">Products</div>
         <CardProductsList products={order.cart.products} />
-        {isPaid && <PaidActions />}
+        {isPaid && <PaidActions payment={order.payment!} />}
         {isWaitingForPayment && <WaitingForPaymentActions orderId={order.id} />}
       </div>
     </div>
