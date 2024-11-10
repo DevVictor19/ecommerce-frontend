@@ -14,14 +14,17 @@ export default function CheckBox({
   value,
 }: CheckBoxProps) {
   return (
-    <div
-      className={cn(
-        'text-secondary-dark flex select-none items-center gap-2 text-sm',
-        className,
-      )}
-    >
-      <input type="checkbox" name={name} id={name} value={value} />
-      <label htmlFor={name}>{label}</label>
+    <div className={cn('form-control', className)}>
+      <label className="label cursor-pointer" htmlFor={name}>
+        <input
+          className="checkbox checkbox-primary"
+          type="checkbox"
+          name={name}
+          id={name}
+          value={value}
+        />
+        <span className="label-text ml-2">{label}</span>
+      </label>
     </div>
   );
 }

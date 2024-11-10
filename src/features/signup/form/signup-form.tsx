@@ -3,10 +3,11 @@
 import TextInput from '@/components/inputs/TextInput';
 import Button from '@/components/ui/Button';
 
-import { useSignupFormModel } from './signup-form.model';
+import { useSignupFormViewModel } from './signup-form.view-model';
 
 export default function SignupForm() {
-  const { errors, isLoading, register, submitHandler } = useSignupFormModel();
+  const { errors, isPending, register, submitHandler } =
+    useSignupFormViewModel();
 
   return (
     <form onSubmit={submitHandler} className="w-full">
@@ -37,11 +38,11 @@ export default function SignupForm() {
         />
       </div>
       <Button
-        className="mt-12"
+        className="btn-block btn-primary mt-8"
         label="Signup"
         type="submit"
-        isLoading={isLoading}
-        disabled={isLoading}
+        isLoading={isPending}
+        disabled={isPending}
       />
     </form>
   );

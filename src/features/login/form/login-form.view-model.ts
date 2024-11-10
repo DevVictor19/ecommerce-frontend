@@ -1,9 +1,15 @@
+import { useRouter } from 'next/navigation';
+
+import { APP_ROUTE } from '@/enums/app-routes.enum';
+import { useLogin } from '@/models/auth.model';
+
 import { useLoginForm } from './login-form.hook';
-import { useLoginFormMutation } from './login-form.mutations';
 import { LoginSchema } from './login-form.schema';
 
-export function useLoginFormModel() {
-  const { mutateAsync, isLoading } = useLoginFormMutation();
+export function useLoginFormViewModel() {
+  const { push } = useRouter();
+
+  const { mutateAsync, isPending } = useLogin();
 
   const { errors, register, handleSubmit, reset, setError } = useLoginForm();
 
@@ -17,11 +23,12 @@ export function useLoginFormModel() {
     }
 
     reset();
+    push(APP_ROUTE.SHOP);
   });
 
   return {
     errors,
-    isLoading,
+    isPending,
     register,
     submitHandler,
   };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -7,22 +8,9 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/features/**/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          light: '#00c9a7',
-          default: '#00afa6',
-          dark: '#00949c',
-        },
-        secondary: {
-          light: '#017a8b',
-          default: '#266074',
-          dark: '#2f4858',
-        },
-      },
-    },
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ['winter'],
   },
-  plugins: [],
 };
 export default config;
