@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 import { APP_ROUTE } from '@/enums/app-routes.enum';
 
-import { useAvatarModel } from './avatar.model';
+import { useAvatarViewModel } from './avatar.view-model';
 
 export default function Avatar() {
-  const { logout } = useAvatarModel();
+  const { logout, isAdmin } = useAvatarViewModel();
 
   return (
     <div className="dropdown dropdown-end">
@@ -22,6 +22,13 @@ export default function Avatar() {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
       >
+        {isAdmin && (
+          <li>
+            <Link className="justify-between" href={APP_ROUTE.ADMIN}>
+              Admin Dashboard
+            </Link>
+          </li>
+        )}
         <li>
           <Link className="justify-between" href={APP_ROUTE.ORDERS}>
             Orders
