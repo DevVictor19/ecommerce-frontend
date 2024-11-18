@@ -6,7 +6,7 @@ import { CheckCircle, Info, Truck } from 'react-feather';
 import Pagination from '@/components/navigation/Pagination';
 import { APP_ROUTE } from '@/enums/app-routes.enum';
 
-import Tabs, { TabLabel } from '../../components/navigation/Tabs';
+import Tabs, { TabLabel } from '../../../components/navigation/Tabs';
 import { useOrdersViewModel } from './orders.view-model';
 import OrdersGrid from './orders-grid/orders-grid';
 

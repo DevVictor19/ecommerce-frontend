@@ -6,7 +6,7 @@ import {
   PAYMENT_STATUS,
 } from '@/services/orders/contracts';
 
-import { useTabs } from '../../components/navigation/Tabs/tabs.hook';
+import { useTabs } from '../../../components/navigation/Tabs/tabs.hook';
 
 export function useOrdersViewModel() {
   const [params, setParams] = useState<Partial<FindAllMyOrdersParams>>({
