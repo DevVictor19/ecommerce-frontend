@@ -2,46 +2,35 @@
 
 import Link from 'next/link';
 
+import Avatar from '@/components/data-display/Avatar';
 import { APP_ROUTE } from '@/enums/app-routes.enum';
 
 import { useAvatarViewModel } from './avatar.view-model';
 
-export default function Avatar() {
+export default function ShopAvatar() {
   const { logout, isAdmin } = useAvatarViewModel();
 
   return (
-    <div className="dropdown dropdown-end">
-      <button className="btn btn-ghost btn-circle" tabIndex={0}>
-        <div className="avatar placeholder">
-          <div className="bg-secondary text-neutral-content w-10 rounded-full">
-            <span>AV</span>
-          </div>
-        </div>
-      </button>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-      >
-        {isAdmin && (
-          <li>
-            <Link className="justify-between" href={APP_ROUTE.ADMIN}>
-              Admin Dashboard
-            </Link>
-          </li>
-        )}
+    <Avatar userInitials="AV">
+      {isAdmin && (
         <li>
-          <Link className="justify-between" href={APP_ROUTE.ORDERS}>
-            Orders
-            <span className="badge">New</span>
+          <Link className="justify-between" href={APP_ROUTE.ADMIN}>
+            Admin Dashboard
           </Link>
         </li>
-        <li>
-          <a>Settings</a>
-        </li>
-        <li onClick={logout}>
-          <a>Logout</a>
-        </li>
-      </ul>
-    </div>
+      )}
+      <li>
+        <Link className="justify-between" href={APP_ROUTE.SHOP_ORDERS}>
+          Orders
+          <span className="badge">New</span>
+        </Link>
+      </li>
+      <li>
+        <a>Settings</a>
+      </li>
+      <li onClick={logout}>
+        <a>Logout</a>
+      </li>
+    </Avatar>
   );
 }

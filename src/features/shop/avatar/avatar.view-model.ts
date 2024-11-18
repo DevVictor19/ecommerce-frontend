@@ -1,20 +1,12 @@
-import { useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { useLogout } from '@/hooks/logout.hook';
 import { JwtPayload } from '@/lib/auth';
-import { deleteCookie, getCookieValue } from '@/lib/client-cookies';
+import { getCookieValue } from '@/lib/client-cookies';
 import { parseJWT } from '@/utils/parse-jwt';
 
 export function useAvatarViewModel() {
-  const queryClient = useQueryClient();
-  const { refresh } = useRouter();
-
-  const logout = () => {
-    deleteCookie('authToken');
-    queryClient.clear();
-    refresh();
-  };
+  const logout = useLogout();
 
   const [isAdmin, setIsAdmin] = useState(false);
 
