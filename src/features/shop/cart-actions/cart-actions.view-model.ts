@@ -8,7 +8,7 @@ export function useCartActionsViewModel() {
   const labelRef = useRef<HTMLLabelElement>(null);
 
   const handleCheckout = () => {
-    push(APP_ROUTE.CHECKOUT);
+    push(APP_ROUTE.SHOP_CHECKOUT);
     labelRef.current?.click();
   };
 

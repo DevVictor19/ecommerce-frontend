@@ -35,7 +35,7 @@ export function useOrderPaymentViewModel() {
     });
 
     if (!error) {
-      setTimeout(() => push(APP_ROUTE.ORDERS), 4000);
+      setTimeout(() => push(APP_ROUTE.SHOP_ORDERS), 4000);
     }
   };
 

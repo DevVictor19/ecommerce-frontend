@@ -27,7 +27,7 @@ export default function WaitingForPaymentActions({
       />
       <Link
         className="btn btn-secondary"
-        href={`${APP_ROUTE.ORDERS}/${orderId}/payment`}
+        href={`${APP_ROUTE.SHOP_ORDERS}/${orderId}/payment`}
       >
         Pay Now!
       </Link>

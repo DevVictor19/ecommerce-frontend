@@ -31,7 +31,10 @@ export function useCheckoutViewModel() {
     });
 
     if (!error) {
-      setTimeout(() => push(`${APP_ROUTE.ORDERS}/${data.id}/payment`), 2000);
+      setTimeout(
+        () => push(`${APP_ROUTE.SHOP_ORDERS}/${data.id}/payment`),
+        2000,
+      );
     }
   };
 

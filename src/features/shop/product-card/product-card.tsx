@@ -26,7 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="card-actions justify-end">
           <Link
             className="btn btn-secondary btn-outline"
-            href={`${APP_ROUTE.PRODUCT}/${id}`}
+            href={`${APP_ROUTE.SHOP_PRODUCT}/${id}`}
           >
             Buy Now
           </Link>

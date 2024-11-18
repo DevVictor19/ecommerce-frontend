@@ -49,7 +49,7 @@ export default function OrderPaymentView() {
 
   return (
     <main className="min-h-[calc(100vh-64px)] p-6">
-      <Link className="btn btn-outline mb-8" href={APP_ROUTE.ORDERS}>
+      <Link className="btn btn-outline mb-8" href={APP_ROUTE.SHOP_ORDERS}>
         Back to Orders
       </Link>
       <div className="flex flex-col gap-8 md:flex-row">
