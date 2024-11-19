@@ -1,3 +1,5 @@
+import OrdersView from '@/features/admin/orders/orders.view';
+
 export default function OrdersPage() {
-  return <div>OrdersPage</div>;
+  return <OrdersView />;
 }
