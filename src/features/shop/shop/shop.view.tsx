@@ -31,7 +31,7 @@ export default function ShopView() {
   return (
     <div className="pb-16 pt-8">
       <div className="mb-10 flex items-center justify-center gap-4 px-5">
-        <SearchBar onSearch={handleChangeSearch} />
+        <SearchBar onSearch={handleChangeSearch} placeholder="Search Product" />
         <FiltersButton
           className="dropdown-end"
           currentFilter={currentFilter}

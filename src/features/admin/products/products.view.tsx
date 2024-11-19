@@ -39,7 +39,10 @@ export default function ProductsView() {
           Add Product <Plus />{' '}
         </button>
         <div className="mb-8 flex items-center gap-4">
-          <SearchBar onSearch={handleChangeSearch} />
+          <SearchBar
+            onSearch={handleChangeSearch}
+            placeholder="Search Product"
+          />
           <FiltersButton
             className="dropdown-end"
             currentFilter={currentFilter}
