@@ -6,10 +6,15 @@ import { debounce } from '@/utils/debounce';
 
 type SearchBarProps = {
   className?: string;
+  placeholder: string;
   onSearch: (value: string) => void;
 };
 
-export default function SearchBar({ className, onSearch }: SearchBarProps) {
+export default function SearchBar({
+  className,
+  placeholder,
+  onSearch,
+}: SearchBarProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value.trim();
     debounce(() => onSearch(value), 1000);
@@ -27,7 +32,7 @@ export default function SearchBar({ className, onSearch }: SearchBarProps) {
         id="search-input"
         className="grow"
         type="text"
-        placeholder="Search Product"
+        placeholder={placeholder}
         onChange={handleChange}
       />
       <Search />
