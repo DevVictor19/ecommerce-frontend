@@ -20,3 +20,11 @@ export type FindAllProductsRequest = Partial<FindAllProductsParams>;
 export type FindAllProductsResponse = Page<Product>;
 
 export type FindProductByIdResponse = Product;
+
+export type CreateProductRequest = {
+  price: number;
+  name: string;
+  description: string;
+  photoUrl: string;
+  stockQuantity: number;
+};
