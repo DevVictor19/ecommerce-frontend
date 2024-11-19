@@ -1,5 +1,5 @@
 import { Payment } from '@/services/payments/contracts';
-import { formatPaymentMethodEnum } from '@/utils/format-payment-method-enum';
+import { formatPaymentMethodEnum } from '@/utils/format-enum';
 import { formatPrice } from '@/utils/format-price';
 
 import { usePaidActionsViewModel } from './paid-actions.view-model';
