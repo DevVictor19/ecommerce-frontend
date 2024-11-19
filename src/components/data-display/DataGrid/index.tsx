@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { cn } from '@/utils/cn';
 
-type DataGridProps<T extends Record<string, string | number>> = {
+type DataGridProps<T> = {
   className?: string;
   columns: string[];
   data: T[] | undefined;
@@ -10,7 +10,7 @@ type DataGridProps<T extends Record<string, string | number>> = {
   render: (row: T, index: number) => ReactNode;
 };
 
-export default function DataGrid<T extends Record<string, string | number>>({
+export default function DataGrid<T>({
   className,
   columns,
   data,

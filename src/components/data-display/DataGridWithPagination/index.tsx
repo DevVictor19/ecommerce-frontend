@@ -5,7 +5,7 @@ import AlertInfo from '@/components/feedback/AlertInfo';
 import DataGrid from '../DataGrid';
 import DataGridPagination from '../DataGridPagination';
 
-type DataGridWithPaginationProps<T extends Record<string, string | number>> = {
+type DataGridWithPaginationProps<T> = {
   className?: string;
   isError: boolean;
   isLoading: boolean;
@@ -22,9 +22,7 @@ type DataGridWithPaginationProps<T extends Record<string, string | number>> = {
   onChangeSize: (size: number) => void;
 };
 
-export default function DataGridWithPagination<
-  T extends Record<string, string | number>,
->({
+export default function DataGridWithPagination<T>({
   className,
   isError,
   isLoading,
