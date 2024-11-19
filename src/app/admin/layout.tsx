@@ -9,7 +9,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       <SideBar />
       <div className="flex w-full flex-col">
         <Header />
-        <main>{children}</main>
+        <main className="h-[calc(100vh-64px)] overflow-y-scroll">
+          {children}
+        </main>
       </div>
     </div>
   );
