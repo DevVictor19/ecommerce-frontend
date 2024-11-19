@@ -1,5 +1,6 @@
 import DataGridWithPagination from '@/components/data-display/DataGridWithPagination';
 import { Product } from '@/services/products/contracts';
+import { formatLocaleDateString } from '@/utils/format-date';
 import { formatPrice } from '@/utils/format-price';
 
 type ProductsGridProps = {
@@ -79,7 +80,7 @@ function ProductGridRow({ product, index }: ProductGridRowProps) {
       </td>
       <td>{product.description}</td>
       <td className="whitespace-nowrap">
-        {new Date(product.createdAt).toLocaleDateString('en')}
+        {formatLocaleDateString(product.createdAt)}
       </td>
     </tr>
   );
