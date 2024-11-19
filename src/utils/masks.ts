@@ -23,3 +23,11 @@ export function expiryMonthMask(value: string) {
 export function ccvMask(value: string) {
   return mask(value, '000');
 }
+
+export function currencyMask(value: string) {
+  return mask(value, '#0.00', { reverse: true });
+}
+
+export function numberMask(value: string) {
+  return mask(value, '#0', { reverse: true });
+}
