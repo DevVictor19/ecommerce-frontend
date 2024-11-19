@@ -1,4 +1,7 @@
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import { ReactNode } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import Header from '@/features/admin/admin/header/header';
 import SideBar from '@/features/admin/admin/sidebar/sidebar';
@@ -11,6 +14,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <Header />
         <main className="h-[calc(100vh-64px)] overflow-y-scroll">
           {children}
+          <ToastContainer />
         </main>
       </div>
     </div>
