@@ -26,3 +26,11 @@ export type FindAllMyOrdersParams = Params<Order> & {
 export type FindAllMyOrdersRequest = Partial<FindAllMyOrdersParams>;
 
 export type FindAllMyOrdersResponse = Page<Order>;
+
+export type FindAllOrdersParams = Params<Order> & {
+  status: keyof typeof PAYMENT_STATUS;
+};
+
+export type FindAllOrdersRequest = Partial<FindAllMyOrdersParams>;
+
+export type FindAllOrdersResponse = Page<Order>;
