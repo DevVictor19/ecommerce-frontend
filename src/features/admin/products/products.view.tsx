@@ -1,13 +1,12 @@
 'use client';
 
-import { Plus } from 'react-feather';
-
 import FiltersButton, {
   FilterButtonOption,
 } from '@/components/ui/FiltersButton';
 import SearchBar from '@/components/ui/SearchBar';
 import { ProductPaginationFilter } from '@/hooks/products-pagination.hook';
 
+import AddProductButton from './add-product-button/add.product-button';
 import { useProductsViewModel } from './products.view-model';
 import ProductsGrid from './products-grid/products-grid';
 
@@ -35,9 +34,7 @@ export default function ProductsView() {
   return (
     <section className="p-8">
       <div className="flex items-center justify-between">
-        <button className="btn btn-secondary" type="button">
-          Add Product <Plus />{' '}
-        </button>
+        <AddProductButton />
         <div className="mb-8 flex items-center gap-4">
           <SearchBar
             onSearch={handleChangeSearch}
