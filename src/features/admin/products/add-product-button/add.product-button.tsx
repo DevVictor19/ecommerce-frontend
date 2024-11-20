@@ -27,7 +27,13 @@ export default function AddProductButton() {
       <dialog id={modalId} className="modal">
         <div className="modal-box">
           <h3 className="mb-3 text-lg font-bold">Create New Product</h3>
-          <ProductForm formId={formId} onSubmit={handleSubmit} />
+          {isPending ? (
+            <div className="flex min-h-28 items-center justify-center">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          ) : (
+            <ProductForm formId={formId} onSubmit={handleSubmit} />
+          )}
           <div className="modal-action">
             <button className="btn" type="button" onClick={handleCloseModal}>
               Close
