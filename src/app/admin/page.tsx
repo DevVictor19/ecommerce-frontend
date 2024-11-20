@@ -1,3 +1,5 @@
+import AdminView from '@/features/admin/admin/admin.view';
+
 export default function AdminPage() {
-  return <div>AdminPage</div>;
+  return <AdminView />;
 }

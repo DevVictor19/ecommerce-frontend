@@ -4,6 +4,8 @@ import { getCookieValue } from '@/lib/client-cookies';
 import { parseToStringRecord } from '@/utils/parse-to-string-record';
 
 import {
+  CreateProductRequest,
+  EditProductRequest,
   FindAllProductsRequest,
   FindAllProductsResponse,
   FindProductByIdResponse,
@@ -26,4 +28,22 @@ export async function findProductById(
     headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
   });
   return data;
+}
+
+export async function createProduct(payload: CreateProductRequest) {
+  await api.post(API_ENDPOINT.PRODUCTS, payload, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+  });
+}
+
+export async function deleteProduct(productId: string) {
+  await api.delete(`${API_ENDPOINT.PRODUCTS}/${productId}`, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+  });
+}
+
+export async function editProduct({ payload, productId }: EditProductRequest) {
+  await api.put(`${API_ENDPOINT.PRODUCTS}/${productId}`, payload, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+  });
 }

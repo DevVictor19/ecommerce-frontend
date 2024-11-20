@@ -1,4 +1,4 @@
-import CheckoutView from '@/features/checkout/checkout.view';
+import CheckoutView from '@/features/shop/checkout/checkout.view';
 
 export default function CheckoutPage() {
   return <CheckoutView />;

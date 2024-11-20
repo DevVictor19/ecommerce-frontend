@@ -7,6 +7,8 @@ import {
   CreateMyOrderResponse,
   FindAllMyOrdersRequest,
   FindAllMyOrdersResponse,
+  FindAllOrdersRequest,
+  FindAllOrdersResponse,
   Order,
 } from './contracts';
 
@@ -38,4 +40,14 @@ export async function cancelMyOrder(orderId: string) {
   await api.delete(`${API_ENDPOINT.CLIENT_ORDERS}/${orderId}`, {
     headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
   });
+}
+
+export async function findAllOrders(
+  params?: FindAllOrdersRequest,
+): Promise<FindAllOrdersResponse> {
+  const { data } = await api.get(API_ENDPOINT.ORDERS, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+    params: params && new URLSearchParams(parseToStringRecord(params)),
+  });
+  return data;
 }

@@ -1,11 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { API_ENDPOINT } from '@/enums/api-endpoints.enum';
-import { FindAllMyOrdersRequest } from '@/services/orders/contracts';
+import {
+  FindAllMyOrdersRequest,
+  FindAllOrdersRequest,
+} from '@/services/orders/contracts';
 import {
   cancelMyOrder,
   createMyOrder,
   findAllMyOrders,
+  findAllOrders,
   findOrderById,
 } from '@/services/orders/orders.service';
 
@@ -15,6 +19,7 @@ export function useCreateMyOrder() {
   return useMutation({
     mutationFn: createMyOrder,
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.ORDERS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_ORDERS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_CARTS] });
     },
@@ -41,8 +46,16 @@ export function useCancelMyOrder() {
   return useMutation({
     mutationFn: cancelMyOrder,
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.ORDERS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.CLIENT_ORDERS] });
       queryClient.invalidateQueries({ queryKey: [API_ENDPOINT.PRODUCTS] });
     },
+  });
+}
+
+export function useFindAllOrders(params?: FindAllOrdersRequest) {
+  return useQuery({
+    queryFn: () => findAllOrders(params),
+    queryKey: [API_ENDPOINT.ORDERS, { params }],
   });
 }
