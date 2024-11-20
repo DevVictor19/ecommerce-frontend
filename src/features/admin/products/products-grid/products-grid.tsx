@@ -1,7 +1,9 @@
 import DataGridWithPagination from '@/components/data-display/DataGridWithPagination';
 import { Product } from '@/services/products/contracts';
-import { formatLocaleDateString } from '@/utils/format-date';
-import { formatPrice } from '@/utils/format-price';
+
+import DeleteProductModal from '../delete-product-modal/delete-product-modal';
+import ProductGridRow from '../product-grid-row/product-grid-row';
+import { useProductsGridModelView } from './products-grid.model-view';
 
 type ProductsGridProps = {
   isError: boolean;
@@ -25,6 +27,7 @@ const columns = [
   'Photo URL',
   'Description',
   'Created At',
+  'Actions',
 ];
 
 export default function ProductsGrid({
@@ -35,53 +38,39 @@ export default function ProductsGrid({
   onChangePage,
   onChangeSize,
 }: ProductsGridProps) {
-  return (
-    <DataGridWithPagination
-      isError={isError}
-      isLoading={isLoading}
-      columns={columns}
-      data={products}
-      onChangePage={onChangePage}
-      onChangeSize={onChangeSize}
-      render={(row, index) => (
-        <ProductGridRow key={row.id} index={index} product={row} />
-      )}
-      page={page}
-    />
-  );
-}
+  const {
+    deleteModalId,
+    isPendingDeleteProduct,
+    handleCloseDeleteModal,
+    handleOpenDeleteModal,
+    handleDeleteProduct,
+  } = useProductsGridModelView();
 
-type ProductGridRowProps = {
-  product: Product;
-  index: number;
-};
-
-function ProductGridRow({ product, index }: ProductGridRowProps) {
   return (
-    <tr className="hover">
-      <td>{index + 1}</td>
-      <td>{product.name}</td>
-      <td>
-        <span className="badge badge-success">
-          ${formatPrice(product.price)}
-        </span>
-      </td>
-      <td>
-        <span className="badge badge-error">{product.stockQuantity}</span>
-      </td>
-      <td>
-        <a
-          className="text-primary whitespace-nowrap underline"
-          href={product.photoUrl}
-          target="_blank"
-        >
-          Product Photo
-        </a>
-      </td>
-      <td>{product.description}</td>
-      <td className="whitespace-nowrap">
-        {formatLocaleDateString(product.createdAt)}
-      </td>
-    </tr>
+    <>
+      <DeleteProductModal
+        isLoading={isPendingDeleteProduct}
+        modalId={deleteModalId}
+        onClose={handleCloseDeleteModal}
+        onSubmit={handleDeleteProduct}
+      />
+      <DataGridWithPagination
+        isError={isError}
+        isLoading={isLoading}
+        columns={columns}
+        data={products}
+        onChangePage={onChangePage}
+        onChangeSize={onChangeSize}
+        render={(row, index) => (
+          <ProductGridRow
+            key={row.id}
+            index={index}
+            product={row}
+            onOpenDeleteModal={handleOpenDeleteModal}
+          />
+        )}
+        page={page}
+      />
+    </>
   );
 }
