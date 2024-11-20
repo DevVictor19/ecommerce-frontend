@@ -5,6 +5,7 @@ import { parseToStringRecord } from '@/utils/parse-to-string-record';
 
 import {
   CreateProductRequest,
+  EditProductRequest,
   FindAllProductsRequest,
   FindAllProductsResponse,
   FindProductByIdResponse,
@@ -37,6 +38,12 @@ export async function createProduct(payload: CreateProductRequest) {
 
 export async function deleteProduct(productId: string) {
   await api.delete(`${API_ENDPOINT.PRODUCTS}/${productId}`, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+  });
+}
+
+export async function editProduct({ payload, productId }: EditProductRequest) {
+  await api.put(`${API_ENDPOINT.PRODUCTS}/${productId}`, payload, {
     headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
   });
 }

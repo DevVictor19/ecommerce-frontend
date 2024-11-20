@@ -28,3 +28,14 @@ export type CreateProductRequest = {
   photoUrl: string;
   stockQuantity: number;
 };
+
+export type EditProductRequest = {
+  productId: string;
+  payload: {
+    price: number;
+    name: string;
+    description: string;
+    photoUrl: string;
+    stockQuantity: number;
+  };
+};
