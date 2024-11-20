@@ -34,3 +34,9 @@ export async function createProduct(payload: CreateProductRequest) {
     headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
   });
 }
+
+export async function deleteProduct(productId: string) {
+  await api.delete(`${API_ENDPOINT.PRODUCTS}/${productId}`, {
+    headers: { Authorization: `Bearer ${getCookieValue('authToken')}` },
+  });
+}
