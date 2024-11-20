@@ -1,7 +1,9 @@
 import './globals.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
 
 import QueryProvider from '@/contexts/QueryContext';
 
@@ -24,6 +26,7 @@ export default function RootLayout({
     <html className={roboto.className} lang="en">
       <body>
         <QueryProvider>{children}</QueryProvider>
+        <ToastContainer />
       </body>
     </html>
   );
