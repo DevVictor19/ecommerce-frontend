@@ -2,6 +2,7 @@ import DataGridWithPagination from '@/components/data-display/DataGridWithPagina
 import { Product } from '@/services/products/contracts';
 
 import DeleteProductModal from '../delete-product-modal/delete-product-modal';
+import EditProductModal from '../edit-product-modal/edit-product-modal';
 import ProductGridRow from '../product-grid-row/product-grid-row';
 import { useProductsGridModelView } from './products-grid.model-view';
 
@@ -44,6 +45,14 @@ export default function ProductsGrid({
     handleCloseDeleteModal,
     handleOpenDeleteModal,
     handleDeleteProduct,
+    editModalId,
+    formId,
+    formValues,
+    handleCloseEditModal,
+    handleEditProduct,
+    handleOpenEditModal,
+    isErrorEditModal,
+    isLoadingEditModal,
   } = useProductsGridModelView();
 
   return (
@@ -53,6 +62,15 @@ export default function ProductsGrid({
         modalId={deleteModalId}
         onClose={handleCloseDeleteModal}
         onSubmit={handleDeleteProduct}
+      />
+      <EditProductModal
+        formId={formId}
+        isError={isErrorEditModal}
+        isLoading={isLoadingEditModal}
+        modalId={editModalId}
+        onClose={handleCloseEditModal}
+        onSubmit={handleEditProduct}
+        values={formValues}
       />
       <DataGridWithPagination
         isError={isError}
@@ -67,6 +85,7 @@ export default function ProductsGrid({
             index={index}
             product={row}
             onOpenDeleteModal={handleOpenDeleteModal}
+            onOpenEditModal={handleOpenEditModal}
           />
         )}
         page={page}

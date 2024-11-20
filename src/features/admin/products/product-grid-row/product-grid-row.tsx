@@ -1,4 +1,4 @@
-import { Trash2 } from 'react-feather';
+import { Edit2, Trash2 } from 'react-feather';
 
 import { Product } from '@/services/products/contracts';
 import { formatLocaleDateString } from '@/utils/format-date';
@@ -8,12 +8,14 @@ type ProductGridRowProps = {
   product: Product;
   index: number;
   onOpenDeleteModal: (productId: string) => void;
+  onOpenEditModal: (productId: string) => void;
 };
 
 export default function ProductGridRow({
   product,
   index,
   onOpenDeleteModal,
+  onOpenEditModal,
 }: ProductGridRowProps) {
   return (
     <tr className="hover">
@@ -42,6 +44,13 @@ export default function ProductGridRow({
       </td>
       <td>
         <div className="flex items-center gap-2">
+          <button
+            className="btn btn-circle btn-xs"
+            type="button"
+            onClick={() => onOpenEditModal(product.id)}
+          >
+            <Edit2 className="text-warning font-bold" size={16} />
+          </button>
           <button
             className="btn btn-circle btn-xs"
             type="button"

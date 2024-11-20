@@ -1,45 +1,9 @@
-import { useId, useState } from 'react';
-
-import { executeWithToastFeedback } from '@/lib/toast';
-import { useDeleteProduct } from '@/models/products.model';
+import { useDeleteProductModal } from '../delete-product-modal/delete-product-modal.hook';
+import { useEditProductModal } from '../edit-product-modal/edit-product-modal.hook';
 
 export function useProductsGridModelView() {
-  const [selectedProductId, setSelectedProductId] = useState<string>();
-
-  // delete modal
-  const deleteModalId = useId();
-
-  const handleOpenDeleteModal = (productId: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (document.getElementById(deleteModalId) as any).showModal();
-    setSelectedProductId(productId);
-  };
-
-  const handleCloseDeleteModal = () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (document.getElementById(deleteModalId) as any).close();
-  };
-
-  const { mutateAsync: deleteProduct, isPending: isPendingDeleteProduct } =
-    useDeleteProduct();
-
-  const handleDeleteProduct = async () => {
-    if (!selectedProductId) return;
-
-    await executeWithToastFeedback({
-      callback: () => deleteProduct(selectedProductId),
-      genericError: 'Unable to delete product',
-      genericSuccess: 'Product deleted successfully',
-    });
-
-    handleCloseDeleteModal();
-  };
-
   return {
-    deleteModalId,
-    isPendingDeleteProduct,
-    handleOpenDeleteModal,
-    handleCloseDeleteModal,
-    handleDeleteProduct,
+    ...useDeleteProductModal(),
+    ...useEditProductModal(),
   };
 }
