@@ -5,17 +5,20 @@ import { useProductFormViewModel } from './product-form.view-model';
 
 type ProductFormProps = {
   values?: ProductFormSchema;
+  defaultValues?: Partial<ProductFormSchema>;
   formId: string;
   onSubmit: (formData: ProductFormSchema) => void;
 };
 
 export default function ProductForm({
   values,
+  defaultValues,
   formId,
   onSubmit,
 }: ProductFormProps) {
   const { errors, submitHandler, register } = useProductFormViewModel({
     values,
+    defaultValues,
     onSubmit,
   });
 

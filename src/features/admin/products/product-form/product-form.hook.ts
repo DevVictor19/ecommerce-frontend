@@ -8,9 +8,10 @@ import { ProductFormSchema, productFormSchema } from './product-form.schema';
 
 type UseProductFormProps = {
   values?: ProductFormSchema;
+  defaultValues?: Partial<ProductFormSchema>;
 };
 
-export function useProductForm({ values }: UseProductFormProps) {
+export function useProductForm({ values, defaultValues }: UseProductFormProps) {
   const {
     register,
     formState: { errors },
@@ -21,7 +22,7 @@ export function useProductForm({ values }: UseProductFormProps) {
   } = useForm<ProductFormSchema>({
     resolver: zodResolver(productFormSchema),
     values,
-    defaultValues: {
+    defaultValues: defaultValues ?? {
       description: '',
       name: '',
       photoUrl: '',
