@@ -4,7 +4,7 @@ import { Product } from '@/services/products/contracts';
 import DeleteProductModal from '../delete-product-modal/delete-product-modal';
 import EditProductModal from '../edit-product-modal/edit-product-modal';
 import ProductGridRow from '../product-grid-row/product-grid-row';
-import { useProductsGridModelView } from './products-grid.model-view';
+import { useProductsGridViewModel } from './products-grid.view-model';
 
 type ProductsGridProps = {
   isError: boolean;
@@ -53,7 +53,7 @@ export default function ProductsGrid({
     handleOpenEditModal,
     isErrorEditModal,
     isLoadingEditModal,
-  } = useProductsGridModelView();
+  } = useProductsGridViewModel();
 
   return (
     <>
